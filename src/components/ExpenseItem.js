@@ -1,17 +1,16 @@
+import './ExpenseItem.css'
+
 function ExpenseItem() {
     return (
-        <div>
-
+        <div className="expense-item">
             <div>
                 Date
             </div>
-            <div>
-                <div>
-                    <h2>
-                        Title
-                    </h2>
-                </div>
-                <div>
+            <div className="expense-item__description">
+                <h2>
+                    Title
+                </h2>
+                <div className="expense-item__price">
                     Amount
                 </div>
             </div>
