@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import './ExpensesFilter.css';
 
 const ExpensesFilter = (props) => {
+    const [selectedYear, setSelectedYear] = useState(2023)
     const yearHamdler = (e) => {
+        e.preventDefault()
+        setSelectedYear(e.target.value)
         props.onModifyExpenseFilter(e.target.value)
     }
 

@@ -13,19 +13,20 @@ const DUMMY_EXPENSES = [
     },
     {
         id: 'e2',
-        date: new Date(2022, 6, 23),
+        date: new Date(2024, 6, 23),
         title: "Ice cream",
         amount: 1.99
     },
     {
         id: 'e3',
-        date: new Date(2023, 9, 31),
+        date: new Date(2024, 9, 31),
         title: "Shoes",
         amount: 14.55
     }
 ]
 
 const App = () => {
+    const [currentYear, setCurrentYear] = useState(2023)
     const [expenses, setExpenses] = useState(DUMMY_EXPENSES)
     const addExpenseHandler = (expense) => {
         console.log("Recieved in App.js")
@@ -33,11 +34,16 @@ const App = () => {
             return [expense, ...expenses]
         })
     }
-    console.log(expenses)
+
+    const changeYearHandler = (year) => {
+        setCurrentYear((previousYear) => {
+            return year
+        })
+    }
     return (
         <div className="App">
             <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
-            <Expenses expenses={expenses}/>
+            <Expenses onYearChange={changeYearHandler} expenses={expenses} currentYear={currentYear}/>
         </div>
     )
 }
