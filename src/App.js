@@ -6,19 +6,22 @@ import React, {useState} from "react";
 // sample data, just for testing
 const DUMMY_EXPENSES = [
     {
+        id: 'e1',
         date: new Date(2023, 0, 10),
         title: "New book",
-        price: 29.99
+        amount: 29.99
     },
     {
+        id: 'e2',
         date: new Date(2022, 6, 23),
         title: "Ice cream",
-        price: 1.99
+        amount: 1.99
     },
     {
+        id: 'e3',
         date: new Date(2023, 9, 31),
         title: "Shoes",
-        price: 14.55
+        amount: 14.55
     }
 ]
 
@@ -34,7 +37,7 @@ const App = () => {
     return (
         <div className="App">
             <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
-            <Expenses expenses={DUMMY_EXPENSES}/>
+            <Expenses expenses={expenses}/>
         </div>
     )
 }

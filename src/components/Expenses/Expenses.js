@@ -20,7 +20,11 @@ function Expenses(props) {
             <ExpensesFilter onModifyExpenseFilter={modifyExpenseFilterHandler}></ExpensesFilter>
             {
                 props.expenses.map((expense) => {
-                    return <ExpenseItem expenseData={expense}></ExpenseItem>
+                    return <ExpenseItem
+                    key={expense.id}
+                    title={expense.title}
+                    amount={expense.amount}
+                    date={expense.date}></ExpenseItem>
                 })
             }
         </Card>
