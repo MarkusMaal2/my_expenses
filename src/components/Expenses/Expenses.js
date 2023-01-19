@@ -11,11 +11,18 @@ function Expenses(props) {
         currentYear = year
     }
 
+    props.expenses.map((expense) => {
+        console.log(expense)
+    })
+
     return (
         <Card className="expenses">
             <ExpensesFilter onModifyExpenseFilter={modifyExpenseFilterHandler}></ExpensesFilter>
-            <ExpenseItem expenseData={props.expenses[0]} />
-            <ExpenseItem expenseData={props.expenses[1]}/>
+            {
+                props.expenses.map((expense) => {
+                    return <ExpenseItem expenseData={expense}></ExpenseItem>
+                })
+            }
         </Card>
     )
 }
